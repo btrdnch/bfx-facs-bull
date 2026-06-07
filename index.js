@@ -129,8 +129,8 @@ class BullFacility extends Base {
 
   _addReconnectHandler (queue) {
     let reconnectingEvent = false
-    queue.client.on('reconnecting', error => {
-      this._logMsg(error, 'redis client reconnecting')
+    queue.client.on('reconnecting', () => {
+      this._logMsg('redis client reconnecting')
       reconnectingEvent = true
     })
     queue.client.on('ready', () => {
